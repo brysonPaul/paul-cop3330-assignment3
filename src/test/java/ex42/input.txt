@@ -1,0 +1,7 @@
+Rhonda,Jones,25000
+John,Smith,50000
+James,ONeil,1000
+Maximus,Smith,21000
+Maximus,Whitaker,5400
+Brian,Mercier,0
+Nathan,Miriki,50002

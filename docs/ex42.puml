@@ -1,0 +1,20 @@
+@startuml
+class App{
+    void main()
+}
+class StringCollection{
+    File f
+    Scanner sc
+    ArrayList<String[]> parsedStrings
+    void initializeFileAndScanner()
+    void initializeFileAndScanner(String str)
+    void processFileInput(Scanner sc)
+    ArrayList<String[]> parseInput(ArrayList<String>)
+    void printParsedStrings()
+}
+file exercise42_input.txt{
+}
+
+App<--StringCollection
+StringCollection<--exercise42_input.txt
+@enduml
