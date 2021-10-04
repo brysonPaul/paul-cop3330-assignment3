@@ -47,5 +47,18 @@ class ex45Test {
 
     @Test
     void replaceWordIfThere() {
+        String str = "cheese is an amazing food";
+
+        WordSwitcher w1 = new WordSwitcher("cheese","food");
+        str = w1.replaceWordIfThere(str);
+        assertEquals(str, "food is an amazing food");
+
+        WordSwitcher w2 = new WordSwitcher("Two","one");
+        str = w2.replaceWordIfThere(str);
+        assertEquals(str, "food is an amazing food");
+
+        WordSwitcher w3 = new WordSwitcher("food","sink");
+        str = w3.replaceWordIfThere(str);
+        assertEquals(str, "sink is an amazing sink");
     }
 }
