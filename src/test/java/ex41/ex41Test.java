@@ -19,12 +19,13 @@ public class ex41Test extends TestCase {
        }
        assertTrue(t);
    }
-
+    @Test
     public void testInitializeFileAndScanner() {
         StringCollection s = new StringCollection("src/test/java/ex41/input");
         assertEquals(s.f.getPath(),"src\\test\\java\\ex41\\input");
     }
 
+    @Test
     public void testProcessFileInput() {
         StringCollection s = new StringCollection("src/test/java/ex41/input");
         assertEquals(7,s.strings.size());

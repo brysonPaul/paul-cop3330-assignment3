@@ -1,0 +1,28 @@
+@startuml
+class App{
+    void main()
+    public static ArrayList<String> replaceWords(StringCollection s, WordSwitcher w)
+}
+class StringCollection{
+    File f
+    Scanner sc
+    ArrayList<String> strings
+    void initializeFileAndScanner()
+    void initializeFileAndScanner(String str) //for testing
+    void processFileInput()
+    void outputStringsToFile()
+    void outputStringsToFile(String str) //for testing
+}
+class WordSwitcher{
+    String leavingWord
+    String wordReplacingLeavingWord
+    public string replaceWordIfThere()
+}
+file exercise45_input.txt{
+}
+
+App<--StringCollection
+App<--WordSwitcher
+StringCollection<--exercise45_input.txt
+
+@enduml
