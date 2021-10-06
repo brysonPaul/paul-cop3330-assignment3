@@ -10,7 +10,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 3 Solution
+ *  Copyright 2021 Bryson Paul
+ */
 public class JsonCollection {
 
      Item[] products;
@@ -18,7 +21,8 @@ public class JsonCollection {
      File f;
      public JsonCollection(){
           try {
-               processFileInput();
+               initializeFileAndScanner();
+               processFileInput(sc);
           }
           catch(FileNotFoundException ex){
                System.out.println("File specified not found");
@@ -28,10 +32,28 @@ public class JsonCollection {
      }
      public JsonCollection(String str) throws IOException {
           try {
-               processFileInput();
+               initializeFileAndScanner(str);
+               processFileInput(sc);
           }
           catch(FileNotFoundException ex){
                System.out.println("File specified not found");
+          }
+     }
+     public void initializeFileAndScanner() throws FileNotFoundException {
+          try {
+               f = new File("src/main/java/ex44/exercise44_input.json");
+               sc = new Scanner(f);
+          }
+          catch (FileNotFoundException ex){
+          }
+     }
+     //WILL ONLY BE USED BY TESTS
+     public void initializeFileAndScanner(String str) throws FileNotFoundException {
+          try {
+               f = new File(str);
+               sc = new Scanner(f);
+          }
+          catch (FileNotFoundException ex){
           }
      }
      /*
@@ -40,14 +62,13 @@ public class JsonCollection {
           aListString.add(s)
           end while
        */
-     public void processFileInput() throws IOException {
-          String json="";
-          Reader r= Files.newBufferedReader(Paths.get("src/main/java/ex44/exercise44_input.json"));
-
+     public void processFileInput(Scanner sc) throws IOException {
+          String json = "";
+          while(sc.hasNextLine()){
+               json+=sc.nextLine();
+          }
           Gson gson = new Gson();
-          products = gson.fromJson(r,products.getClass());
-          r.close();
-
+          products = gson.fromJson(json,products.getClass());
      }
 
 }
