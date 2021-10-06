@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class JsonCollection {
 
-     ArrayList<Map<?,?>> map;
+     Item[] products;
      Scanner sc;
      File f;
      public JsonCollection(){
@@ -45,7 +45,7 @@ public class JsonCollection {
           Reader r= Files.newBufferedReader(Paths.get("src/main/java/ex44/exercise44_input.json"));
 
           Gson gson = new Gson();
-          map =gson.fromJson(r,map.getClass());
+          products = gson.fromJson(r,products.getClass());
           r.close();
 
      }
