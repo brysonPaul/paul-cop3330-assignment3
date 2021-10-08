@@ -47,4 +47,15 @@ class ex43Test {
         ma.makeCSSFolder("src/test/java/ex43/website/testingCSS/");
         assertEquals(Files.exists(Path.of("src/test/java/ex43/website/testingCSS/css")),true);
     }
+
+    @Test
+    void parsePath() throws IOException{
+        WebsiteMaker ma = new WebsiteMaker("testingParsePath","123",false,false,"src/test/java/ex43/website/testingParsePath/");
+        String s = ma.parsePath("website");
+        assertEquals(s,".\\website");
+        s = ma.parsePath("src\\test\\java\\ex43\\website\\testingParsePath\\");
+        assertEquals(s,".\\website\\testingParsePath\\");
+        s = ma.parsePath("a");
+        assertEquals(s,".\\websitea");
+    }
 }

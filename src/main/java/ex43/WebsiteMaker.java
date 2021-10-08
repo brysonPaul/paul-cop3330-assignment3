@@ -39,16 +39,30 @@ public class WebsiteMaker
         String dirPath= "src/main/java/ex43/website/"+siteName+"/";
         new File(dirPath).mkdirs();
         String htmlPath=dirPath+"index.html";
-        System.out.println("Created "+(new File(dirPath)).getPath());
+        System.out.println("Created "+parsePath((new File(dirPath)).getPath()));
         addAuthorAndSiteName(new File(htmlPath));
         makeJSFolder(dirPath);
         makeCSSFolder(dirPath);
+    }
+    /*
+        index = str.indexOf(webSite);
+        if index != -1
+            return substring of path w/o word "website"
+        else return ".//website"+str
+        end if
+     */
+    public String parsePath(String path){
+        int indexOfParse=path.indexOf("website");
+        if(indexOfParse!=-1){
+            return parsePath(path.substring(indexOfParse+7));
+        }
+        else return ".\\website"+path;
     }
     //FOR TESTING
     void makeSite(String dirPath) throws IOException{
         new File(dirPath).mkdirs();
         String htmlPath=dirPath+"index.html";
-        System.out.println("Created "+(new File(dirPath)).getPath());
+        System.out.println("Created "+parsePath((new File(dirPath)).getPath()));
         addAuthorAndSiteName(new File(htmlPath));
         makeJSFolder(dirPath);
         makeCSSFolder(dirPath);
@@ -65,7 +79,7 @@ public class WebsiteMaker
         fw.write("<title> "+siteName+"</title>\n");
         fw.write("<meta> "+author+"</meta>\n");
         fw.close();
-        System.out.println("Created "+f.getPath());
+        System.out.println("Created "+parsePath(f.getPath()));
 
     }
     /*
@@ -80,7 +94,7 @@ public class WebsiteMaker
         }
          File f = new File((path+"js"));
         f.mkdir();
-        System.out.println("Created "+f.getPath());
+        System.out.println("Created "+parsePath(f.getPath())+"\\");
 
     }
     /*
@@ -95,7 +109,7 @@ public class WebsiteMaker
         }
         File f= new File(path+"css");
         f.mkdir();
-        System.out.println("Created "+f.getPath());
+        System.out.println("Created "+parsePath(f.getPath())+"\\");
     }
 
 
