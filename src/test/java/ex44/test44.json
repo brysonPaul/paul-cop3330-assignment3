@@ -1,0 +1,10 @@
+{
+  "products" : [
+    {"name": "Sword", "price": 100.00, "quantity": 5 },
+    {"name": "Potion", "price": 10.00, "quantity": 10 },
+    {"name": "Shield", "price": 75.00, "quantity": 2 },
+    {"name": "Iron", "price": 50.00, "quantity": 12 },
+    {"name": "Gold", "price": 100.00, "quantity": 6 },
+    {"name": "Diamond", "price": 500.00, "quantity": 2 }
+  ]
+}

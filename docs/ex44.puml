@@ -1,0 +1,30 @@
+@startuml
+class Item{
+    public String name
+    public double price
+    public int quantity
+
+}
+class Products{
+    public ArrayList<Item> products
+}
+class App{
+    public static void main(String[] args)
+    static int containsProduct(JsonCollection jc, String product)
+}
+class JsonCollection{
+    Products p
+    Scanner sc
+    File f
+
+    public void initializeFileAndScanner()
+    public void initializeFileAndScanner(String str)
+    public void processFileInput(Scanner sc)
+}
+file exercise44_input.json{
+}
+App<--JsonCollection
+JsonCollection<--Products
+JsonCollection<--exercise44_input.json
+Products<--Item
+@enduml
