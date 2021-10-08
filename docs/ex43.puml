@@ -1,0 +1,23 @@
+@startuml
+class App{
+    public static void main(String[] args)
+    public static String strIO(String s, Scanner sc)
+}
+class WebsiteMaker{
+   public String siteName
+    public String author
+    public boolean jsFolder
+    public boolean cssFolder
+
+    void makeSite()
+    void makeSite(String dirPath)
+    void addAuthorAndSiteName()
+    void makeJSFolder(String path)
+    void makeCSSFolder(String path)
+}
+file System.In{
+}
+App<--WebsiteMaker
+App<--System.In
+WebsiteMaker<--System.In
+@enduml

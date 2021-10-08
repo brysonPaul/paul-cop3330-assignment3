@@ -16,11 +16,12 @@ import java.util.Scanner;
  */
 public class JsonCollection {
 
-     Item[] products;
+     ArrayList<Object> products;
      Scanner sc;
      File f;
      public JsonCollection(){
           try {
+               products=new ArrayList<>();
                initializeFileAndScanner();
                processFileInput(sc);
           }
@@ -63,12 +64,16 @@ public class JsonCollection {
           end while
        */
      public void processFileInput(Scanner sc) throws IOException {
+          //GsonBuilder b= new GsonBuilder();
+          //b.registerTypeAdapter(Item.class, new ItemAdapter().nullSafe());
+          Gson gson = new Gson();
           String json = "";
           while(sc.hasNextLine()){
-               json+=sc.nextLine();
+                    json+=(sc.nextLine());
           }
-          Gson gson = new Gson();
-          products = gson.fromJson(json,products.getClass());
+          System.out.println(json);
+
+          products = gson.fromJson(json,ArrayList.class);
      }
 
 }

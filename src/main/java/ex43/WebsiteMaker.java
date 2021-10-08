@@ -1,8 +1,9 @@
 package ex43;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Locale;
+
 
 public class WebsiteMaker
 {
@@ -16,30 +17,85 @@ public class WebsiteMaker
         this.author = author;
         this.jsFolder = jsFolder;
         this.cssFolder = cssFolder;
-
         makeSite();
-        makeJSFolder();
-        makeCSSFolder();
+
     }
+    public WebsiteMaker(String siteName, String author, boolean jsFolder, boolean cssFolder,String dir) throws IOException {
+        this.siteName = siteName;
+        this.author = author;
+        this.jsFolder = jsFolder;
+        this.cssFolder = cssFolder;
+        makeSite(dir);
+
+    }
+    /*
+        dirPath="src/main/java/../sitename/"
+        htmlPath= dirPath+"index.html";
+        addauthorandSiteName()
+        makeJSFolder()
+        makeCSSFOlder()
+     */
     void makeSite() throws IOException {
-        String dirPath= "src/main/java/ex43/website/"+siteName;
-        String htmlPath=dirPath+"/index.html";
+        String dirPath= "src/main/java/ex43/website/"+siteName+"/";
+        new File(dirPath).mkdirs();
+        String htmlPath=dirPath+"index.html";
+        System.out.println("Created "+(new File(dirPath)).getPath());
         addAuthorAndSiteName(new File(htmlPath));
-        System.out.println("Created "+(new File(dirPath)).getCanonicalPath());
+        makeJSFolder(dirPath);
+        makeCSSFolder(dirPath);
+    }
+    //FOR TESTING
+    void makeSite(String dirPath) throws IOException{
+        new File(dirPath).mkdirs();
+        String htmlPath=dirPath+"index.html";
+        System.out.println("Created "+(new File(dirPath)).getPath());
+        addAuthorAndSiteName(new File(htmlPath));
+        makeJSFolder(dirPath);
+        makeCSSFolder(dirPath);
+    }
+    /*
+        f.createNewFile()
+        fw= new FileWriter;
+        write(sitename)
+        write(author);
+     */
+    void addAuthorAndSiteName(File f) throws IOException {
+        f.createNewFile();
+        FileWriter fw= new FileWriter(f);
+        fw.write("<title> "+siteName+"</title>\n");
+        fw.write("<meta> "+author+"</meta>\n");
+        fw.close();
+        System.out.println("Created "+f.getPath());
 
     }
-    void addAuthorAndSiteName(File f){
-
-    }
-    void makeJSFolder(){
+    /*
+        if(jsFolder==true)
+            make js folder
+        end if
+        else return end else
+     */
+    void makeJSFolder(String path) throws IOException {
         if(!jsFolder) {
             return;
         }
+         File f = new File((path+"js"));
+        f.mkdir();
+        System.out.println("Created "+f.getPath());
+
     }
-    void makeCSSFolder(){
+    /*
+        if(cssFolder==true)
+            make js folder
+        end if
+        else return end else
+     */
+    void makeCSSFolder(String path) throws IOException {
         if(!cssFolder) {
             return;
         }
+        File f= new File(path+"css");
+        f.mkdir();
+        System.out.println("Created "+f.getPath());
     }
 
 
