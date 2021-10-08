@@ -6,9 +6,9 @@ package ex44;
 public class Item {
     public String name;
     double price;
-    double quantity;
+    int quantity;
 
-    public Item(String name, double price, double quantity){
+    public Item(String name, double price, int quantity){
         this.name=name;
         this.price=price;
         this.quantity=quantity;
@@ -19,7 +19,7 @@ public class Item {
     system.out.println(quantity);
      */
 
-    public void printItem(){
+    public void printItem(){//no test, because all the method does is print
         System.out.println("Name: " + name);
         System.out.println("Price: " + price);
         System.out.print("Quantity: " + quantity);

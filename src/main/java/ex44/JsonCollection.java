@@ -1,14 +1,8 @@
 package ex44;
 import com.google.gson.*;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Map;
 import java.util.Scanner;
 /*
  *  UCF COP3330 Fall 2021 Assignment 3 Solution
@@ -16,12 +10,11 @@ import java.util.Scanner;
  */
 public class JsonCollection {
 
-     ArrayList<Object> products;
+     Products p= new Products();
      Scanner sc;
      File f;
      public JsonCollection(){
           try {
-               products=new ArrayList<>();
                initializeFileAndScanner();
                processFileInput(sc);
           }
@@ -40,6 +33,10 @@ public class JsonCollection {
                System.out.println("File specified not found");
           }
      }
+     /*
+       f = new file(nameOfInput)
+       sc = new Scanner(f)
+    */
      public void initializeFileAndScanner() throws FileNotFoundException {
           try {
                f = new File("src/main/java/ex44/exercise44_input.json");
@@ -61,19 +58,16 @@ public class JsonCollection {
       while(file has lines to read)
           String s= line of text
           aListString.add(s)
-          end while
+      end loop
+      p= fromJson(s, Products.class)
        */
      public void processFileInput(Scanner sc) throws IOException {
-          //GsonBuilder b= new GsonBuilder();
-          //b.registerTypeAdapter(Item.class, new ItemAdapter().nullSafe());
           Gson gson = new Gson();
           String json = "";
           while(sc.hasNextLine()){
                     json+=(sc.nextLine());
           }
-          System.out.println(json);
-
-          products = gson.fromJson(json,ArrayList.class);
+          p = gson.fromJson(json,Products.class);
      }
 
 }
