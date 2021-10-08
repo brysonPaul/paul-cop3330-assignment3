@@ -3,8 +3,10 @@ package ex43;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 3 Solution
+ *  Copyright 2021 Bryson Paul
+ */
 public class WebsiteMaker
 {
     public String siteName;

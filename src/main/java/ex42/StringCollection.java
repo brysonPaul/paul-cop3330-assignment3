@@ -86,7 +86,11 @@ public class StringCollection
         }
         return inp;
     }
-
+    /*
+        for(String[] x in parsedStrings)
+            print(contents of x)
+        end loop
+     */
     public void printParsedStrings(){
         System.out.println(String.format("%-9s %-9s %-9s\n---------------------------","Last","First","Salary"));
         for(int x=0;x<parsedStrings.size();x++){

@@ -8,6 +8,12 @@ import java.util.ArrayList;
  *  Copyright 2021 Bryson Paul
  */
 public class App {
+    /*
+        s= new StringCollection
+        w = new WordSwitcher("utilize", "use")
+        s.strings= replaceWords(s,w)
+        s.outputStringsToFile()
+     */
     public static void main(String[] args){
         try {
             StringCollection s = new StringCollection();//initialization of StringCollection
