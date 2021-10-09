@@ -1,0 +1,30 @@
+@startuml
+class App{
+    void main()
+    static ArrayList<Word> populateWords(StringCollection sc)
+    static int indexOf(String word, ArrayList<Word> words)
+    static void printParsedStrings(ArrayList<Word> words)
+}
+class StringCollection{
+    File f
+    Scanner sc
+    ArrayList<String> parsedStrings
+    void initializeFileAndScanner()
+    void initializeFileAndScanner(String str)
+    void processFileInput(Scanner sc)
+    ArrayList<String> parseInput(ArrayList<String>)
+}
+class Word implements Comparable{
+    String word
+    String quantity
+    void increaseQuantity()
+}
+interface Comparable{
+    compareTo(Object o)
+}
+file exercise46_input.txt{
+}
+App<--Word
+App<--StringCollection
+StringCollection<--exercise46_input.txt
+@enduml
