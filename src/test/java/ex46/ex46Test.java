@@ -6,7 +6,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 3 Solution
+ *  Copyright 2021 Bryson Paul
+ */
 class ex46Test {
     @Test
     public void testPopulateWords() {

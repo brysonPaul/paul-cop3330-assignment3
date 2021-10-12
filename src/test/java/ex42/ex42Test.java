@@ -3,7 +3,10 @@ package ex42;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 3 Solution
+ *  Copyright 2021 Bryson Paul
+ */
 class ex42Test {
     @Test
     public void testInitializeFileAndScanner() {

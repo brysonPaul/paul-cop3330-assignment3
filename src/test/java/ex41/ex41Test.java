@@ -5,7 +5,10 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/*
+ *  UCF COP3330 Fall 2021 Assignment 3 Solution
+ *  Copyright 2021 Bryson Paul
+ */
 class ex41Test {
     @Test
     public void testSorting() throws IOException {//if this works everything is bound to work since they are so bound together
